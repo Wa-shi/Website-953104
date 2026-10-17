@@ -1,0 +1,12 @@
+# Reference & local dev folders
+BAS-webside2-main/
+_dev_notes/
+newBaswebsite/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & temp
+*.log
