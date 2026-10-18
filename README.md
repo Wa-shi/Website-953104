@@ -1,25 +1,25 @@
-# Term Project: Web App for a Real Person
-**Course**: 953104 Web User Interface Design and Development (Semester 1/2026)  
-🌐 **Live Demo Website**: [https://wa-shi.github.io/BAS-website-953104/](https://wa-shi.github.io/BAS-website-953104/)
+# Term Project Web App for a Real Person
+**Course** 953104 Web User Interface Design and Development (Semester 1/2026)  
+**Live Demo Website**: [https://wa-shi.github.io/BAS-website-953104/](https://wa-shi.github.io/BAS-website-953104/)
 
 ---
 
-## 👥 Team Information
-- **Partner 1**: [Student Name 1] (Student ID: [ID 1])
-- **Partner 2**: [Student Name 2] (Student ID: [ID 2])
-- **Section**: [Section Number]
+##  Team Information
+- **Partner 1**  [Student Name 1] (Student ID  [ID 1])
+- **Partner 2**  [Student Name 2] (Student ID  [ID 2])
+- **Section**  [Section Number]
 
 ---
 
-## 🎯 User & Problem Statement
-- **Real User**: บริษัท บิวดิ้ง แอดวานซด์ โซลูชั่น จำกัด (Building Advanced Solution Co., Ltd. - BAS) - ผู้เชี่ยวชาญด้านระบบวิศวกรรมอาคารอัตโนมัติ (BMS) และความปลอดภัย
-- **Their Problem**: ลูกค้าที่ต้องการติดตั้งระบบวิศวกรรมอาคารขนาดใหญ่เข้าถึงข้อมูลบริการและส่งข้อมูลขอนัดหมายสำรวจหน้างานได้ยาก ขาดระบบหน้าเว็บแบบ Single-Page ที่กระชับ โหลดเร็ว และไม่ต้องการระบบเซิร์ฟเวอร์ซับซ้อน
-- **Solution Overview**: เว็บไซต์ Single-Page Interactive Application พัฒนาด้วย Pure HTML5, CSS3 และ Vanilla ES6 JavaScript นำเสนอ 10 ระบบบริการหลัก ค้นหาและกรองบริการ พร้อมระบบนัดหมายสำรวจหน้างานและแบบฟอร์มตรวจสอบความถูกต้องในตัว
-- **User Feedback**: "หน้าเว็บโหลดรวดเร็ว ค้นหาระบบบริการได้ง่าย และการแสดงผลสวยงามตรงตามเอกลักษณ์ของบริษัท BAS"
+##  User & Problem Statement
+- **Real User**  บริษัท บิวดิ้ง แอดวานซด์ โซลูชั่น จำกัด (Building Advanced Solution Co., Ltd. - BAS) ผู้เชี่ยวชาญด้านระบบวิศวกรรมอาคารอัตโนมัติ (BMS) และความปลอดภัย
+- **Their Problem**  ลูกค้าที่ต้องการติดตั้งระบบวิศวกรรมอาคารขนาดใหญ่เข้าถึงข้อมูลบริการและส่งข้อมูลขอนัดหมายสำรวจหน้างานได้ยาก ขาดระบบหน้าเว็บแบบ Single-Page ที่กระชับ โหลดเร็ว และไม่ต้องการระบบเซิร์ฟเวอร์ซับซ้อน
+- **Solution Overview**  เว็บไซต์ Single-Page Interactive Application พัฒนาด้วย Pure HTML5, CSS3 และ Vanilla ES6 JavaScript นำเสนอ 10 ระบบบริการหลัก ค้นหาและกรองบริการ พร้อมระบบนัดหมายสำรวจหน้างานและแบบฟอร์มตรวจสอบความถูกต้องในตัว
+- **User Feedback**  "หน้าเว็บโหลดรวดเร็ว ค้นหาระบบบริการได้ง่าย และการแสดงผลสวยงามตรงตามเอกลักษณ์ของบริษัท BAS"
 
 ---
 
-## 🗺️ Feature Ownership Map
+##  Feature Ownership Map
 
 | # | Feature Name | Owner | File & Line Range | Summary |
 | :- | :--- | :--- | :--- | :--- |
