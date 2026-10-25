@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BAS - Building Advanced Solution | ระบบวิศวกรรมและอาคารอัตโนมัติ</title>
+  <title>BAS - Building Advanced Solution | Smart Building Engineering & Solutions</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -29,13 +29,38 @@
 
       <!-- Action Button & Mobile Toggle -->
       <div class="header-actions">
-        <!-- Language Switcher Button (TH / EN) -->
-        <button type="button" id="lang-toggle-btn" class="lang-toggle-btn" aria-label="สลับภาษา / Switch Language">
-          <span class="lang-label is-active" id="lang-code-th">TH</span>
-          <span class="lang-divider">/</span>
-          <span class="lang-label" id="lang-code-en">EN</span>
+        <!-- Professional Enterprise Theme Switcher -->
+        <button type="button" id="theme-toggle-btn" class="theme-switch" role="switch" aria-checked="false" aria-label="Toggle Dark and Light theme" title="Toggle Theme (Dark / Light)">
+          <span class="theme-switch-track">
+            <span class="theme-switch-thumb">
+              <svg class="theme-svg theme-svg-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <svg class="theme-svg theme-svg-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </span>
+          </span>
+          <span class="theme-switch-label" id="theme-mode-text">Dark</span>
         </button>
-        <a href="#contact" class="btn btn-outline nav-cta" data-i18n="nav.cta">ขอนัดหมายสำรวจ</a>
+
+
+
+        <!-- Language Switcher Button (TH / EN) -->
+        <button type="button" id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Switch Language / สลับภาษา">
+          <span class="lang-label" id="lang-code-th">TH</span>
+          <span class="lang-divider">/</span>
+          <span class="lang-label is-active" id="lang-code-en">EN</span>
+        </button>
+        <a href="#contact" class="btn btn-outline nav-cta" data-i18n="nav.cta">Schedule Survey</a>
         <button type="button" id="menu-toggle-btn" class="menu-toggle-btn" aria-expanded="false" aria-controls="main-nav" aria-label="เปิดหรือปิดเมนูนำทาง">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
@@ -176,7 +201,7 @@
       <div class="container">
         <div class="section-header text-center">
           <span class="section-tag" data-i18n="services.tag">ระบบและบริการ</span>
-          <h2 id="services-heading" class="section-title" data-i18n="services.title">บริการของเรา (Our Services)</h2>
+          <h2 id="services-heading" class="section-title" data-i18n="services.title">บริการของเรา</h2>
           <p class="section-subtitle" data-i18n="services.subtitle">
             บริการครอบคลุมทั้งอาคารสำนักงานและโรงงานอุตสาหกรรม เสริมความปลอดภัย เพิ่มประสิทธิภาพการประหยัดพลังงาน
           </p>
@@ -524,6 +549,8 @@
       </footer>
     </div>
   </dialog>
+
+
 
   <!-- External Vanilla JavaScript -->
   <script src="js/app.js"></script>

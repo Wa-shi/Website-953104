@@ -11,7 +11,7 @@
    0. BILINGUAL LOCALIZATION DICTIONARY (Pure Vanilla JS - In-Memory)
    Centralized content dictionary for easy maintenance (Course 953104)
    ========================================================================== */
-let currentLang = "th"; // "th" | "en"
+let currentLang = "en"; // Default: English on initial load ("en" | "th")
 
 const translations = {
   th: {
@@ -22,6 +22,8 @@ const translations = {
     "nav.projects": "ผลงานโครงการ",
     "nav.contact": "ติดต่อเรา",
     "nav.cta": "ขอนัดหมายสำรวจ",
+    "nav.themeToggle": "สลับธีม สว่าง/มืด",
+    "nav.cursorToggle": "เปิด/ปิด วงแหวนเมาส์ (กด C)",
     // Hero
     "hero.tag": "Smart Building & Energy Solutions",
     "hero.desc": "เพื่อความปลอดภัย พร้อมรักษาสิ่งแวดล้อม และพลังงานที่ยั่งยืน บริษัท บิวดิ้ง แอดวานซด์ โซลูชั่น จำกัด (BAS) ผู้นำด้านระบบควบคุมอัตโนมัติภายในอาคาร ระบบปรับอากาศ HVAC และระบบรักษาความปลอดภัยอัจฉริยะครบวงจร",
@@ -43,7 +45,7 @@ const translations = {
     "partners.label": "พันธมิตรทางเทคโนโลยีระดับสากลที่ร่วมงานกับ BAS",
     // Services
     "services.tag": "ระบบและบริการ",
-    "services.title": "บริการของเรา (Our Services)",
+    "services.title": "บริการของเรา",
     "services.subtitle": "บริการครอบคลุมทั้งอาคารสำนักงานและโรงงานอุตสาหกรรม เสริมความปลอดภัย เพิ่มประสิทธิภาพการประหยัดพลังงาน",
     "services.filterAll": "ทั้งหมด",
     "services.filterOffice": "สำนักงานและอาคาร",
@@ -54,7 +56,7 @@ const translations = {
     "services.sortAsc": "ชื่อบริการ (ก - ฮ)",
     "services.sortDesc": "ชื่อบริการ (ฮ - ก)",
     "services.noResults": "ไม่พบรายการบริการที่ตรงกับเงื่อนไขการค้นหาของคุณ",
-    "services.expandShowMore": "ดูบริการทั้งหมด (10 รายการ)",
+    "services.expandShowMore": "ดูบริการทั้งหมด (16 รายการ)",
     "services.expandShowLess": "ย่อบริการ",
     "services.btnSelect": "+ สนใจระบบนี้",
     "services.btnSelected": "✔ เลือกแล้ว",
@@ -106,6 +108,8 @@ const translations = {
     "nav.projects": "Projects",
     "nav.contact": "Contact",
     "nav.cta": "Schedule Survey",
+    "nav.themeToggle": "Toggle Dark/Light Theme",
+    "nav.cursorToggle": "Toggle Cursor Effect (Press C)",
     // Hero
     "hero.tag": "Smart Building & Energy Solutions",
     "hero.desc": "For safety, environmental sustainability, and reliable energy management. Building Advanced Solution Co., Ltd. (BAS) is a leading provider of Building Automation, HVAC, and Smart Security solutions.",
@@ -138,7 +142,7 @@ const translations = {
     "services.sortAsc": "Service Name (A - Z)",
     "services.sortDesc": "Service Name (Z - A)",
     "services.noResults": "No services found matching your criteria.",
-    "services.expandShowMore": "Show All Services (10 items)",
+    "services.expandShowMore": "Show All Services (16 items)",
     "services.expandShowLess": "Collapse Services",
     "services.btnSelect": "+ Interested",
     "services.btnSelected": "✔ Selected",
@@ -325,6 +329,90 @@ let servicesData = [
     description: "เครื่องกั้นคนอัตโนมัติความเร็วสูง อนุญาตให้ผ่านเข้า-ออกได้ทีละคน ป้องกันการเข้าพื้นที่โดยไม่ได้รับอนุญาต และเชื่อมต่อกับระบบลงเวลาทำงาน",
     descriptionEn: "High-speed pedestrian optical turnstiles preventing tailgating and integrating seamlessly with building time-attendance systems.",
     image: "images/services/optical-turnstiles.webp",
+    isFeatured: false,
+    isSelected: false,
+    isCustom: false
+  },
+  {
+    id: 11,
+    title: "Road Blocker และ Bollard",
+    titleEn: "Road Blocker and Bollard",
+    category: "office",
+    categoryName: "สำนักงานและอาคาร",
+    categoryNameEn: "Office & Building",
+    description: "อุปกรณ์กั้นรถที่ออกแบบให้ทนทานต่อแรงชน เพื่อเพิ่มความปลอดภัยในพื้นที่สำคัญจากการโจมตีของยานพาหนะ",
+    descriptionEn: "Vehicle blocking equipment designed to withstand impact, increasing safety in critical areas from vehicle attacks.",
+    image: "images/services/Road-Blocker-and-Bollard.webp",
+    isFeatured: false,
+    isSelected: false,
+    isCustom: false
+  },
+  {
+    id: 12,
+    title: "Smart Pole (เสาไฟอัจฉริยะ)",
+    titleEn: "Smart Pole",
+    category: "office",
+    categoryName: "สำนักงานและอาคาร",
+    categoryNameEn: "Office & Building",
+    description: "เสาไฟอัจฉริยะที่ผสานเทคโนโลยีหลากหลาย เช่น กล้อง CCTV และระบบตรวจสอบสภาพอากาศ เพื่อเพิ่มคุณภาพชีวิตและความปลอดภัยของชุมชน",
+    descriptionEn: "An intelligent street pole integrating multiple technologies such as CCTV cameras and weather monitoring systems to enhance safety in communities.",
+    image: "images/services/smart pole.webp",
+    isFeatured: false,
+    isSelected: false,
+    isCustom: false
+  },
+  {
+    id: 13,
+    title: "ระบบแจ้งเตือนอัคคีภัย (Fire Alarm)",
+    titleEn: "Fire Alarm System",
+    category: "office",
+    categoryName: "สำนักงานและอาคาร",
+    categoryNameEn: "Office & Building",
+    description: "ระบบแจ้งเตือนอัคคีภัยเพื่อการตรวจจับไฟ ควัน และเหตุฉุกเฉินอื่นๆ ที่เกี่ยวข้องกับเพลิงไหม้",
+    descriptionEn: "A fire detection and alert system for detecting fire, smoke, and other fire-related emergencies in buildings.",
+    image: "images/services/Fire-Alarm-System.webp",
+    isFeatured: false,
+    isSelected: false,
+    isCustom: false
+  },
+  {
+    id: 14,
+    title: "ระบบตรวจจับระดับน้ำท่วม (Flood Sensor)",
+    titleEn: "Flood Level Sensor",
+    category: "office",
+    categoryName: "สำนักงานและอาคาร",
+    categoryNameEn: "Office & Building",
+    description: "อุปกรณ์ตรวจจับระดับน้ำท่วมที่ส่งสัญญาณเตือนไปยังสมาร์ทโฟนเพื่อให้ผู้รับผิดชอบเข้ามาแก้ไขปัญหาได้ทันเวลา",
+    descriptionEn: "A flood level sensor that sends alerts to smartphones, enabling responsible personnel to take timely action.",
+    image: "images/services/flood level.webp",
+    isFeatured: false,
+    isSelected: false,
+    isCustom: false
+  },
+  {
+    id: 15,
+    title: "ระบบเสียงประกาศ / IP Phone",
+    titleEn: "Public Address System / IP Phone",
+    category: "office",
+    categoryName: "สำนักงานและอาคาร",
+    categoryNameEn: "Office & Building",
+    description: "ระบบประกาศเสียงผ่าน IP protocol สำหรับการสื่อสารภายในองค์กร",
+    descriptionEn: "An IP-based public address system for communication within an organization.",
+    image: "images/services/Public-Address-System.webp",
+    isFeatured: false,
+    isSelected: false,
+    isCustom: false
+  },
+  {
+    id: 16,
+    title: "เครื่อง X-Ray Scanner",
+    titleEn: "X-Ray Scanner",
+    category: "office",
+    categoryName: "สำนักงานและอาคาร",
+    categoryNameEn: "Office & Building",
+    description: "อุปกรณ์สแกนเพื่อค้นหาสิ่งแปลกปลอมโดยใช้หลักการคลื่นแม่เหล็กไฟฟ้า เหมาะสำหรับการตรวจจับโลหะและวัสดุอันตรายอื่นๆ",
+    descriptionEn: "A scanner using electromagnetic waves to detect foreign objects, ideal for detecting metals and other dangerous materials.",
+    image: "images/services/X-Ray-Scanner.webp",
     isFeatured: false,
     isSelected: false,
     isCustom: false
@@ -546,18 +634,18 @@ function openServiceModal(serviceId) {
       : "ได้รับการรับรองมาตรฐานวิศวกรรมระดับสากลจาก Johnson Controls พร้อมบริการซ่อมบำรุงและสต็อกอะไหล่แท้ตลอด 24 ชั่วโมง มูลค่ากว่า 5 ล้านบาท";
 
     dialogBody.innerHTML = `
-      <div style="margin-bottom: 1.25rem; border-radius: 12px; overflow: hidden; height: 220px; background: #0c0f0d;">
-        <img src="${service.image}" alt="${displayTitle}" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="modal-img-wrapper">
+        <img src="${service.image}" alt="${displayTitle}" class="modal-img">
       </div>
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-        <span class="card-badge ${service.category === 'office' ? 'badge-office' : 'badge-factory'}" style="position: static;">${displayCategoryName}</span>
+      <div class="modal-badge-row">
+        <span class="card-badge ${service.category === 'office' ? 'badge-office' : 'badge-factory'} modal-badge">${displayCategoryName}</span>
       </div>
-      <p style="margin-bottom: 1.25rem; line-height: 1.7; color: #f5f7f5; font-size: 0.975rem;">
+      <p class="modal-desc">
         ${displayDesc}
       </p>
-      <div style="background: rgba(60, 136, 60, 0.1); border: 1px solid rgba(60, 136, 60, 0.25); border-radius: 10px; padding: 1.15rem; font-size: 0.9rem; line-height: 1.6; color: #b4c0b7;">
-        <p style="color: #6ee7b7; font-weight: 600; margin-bottom: 0.35rem;">${certTitle}</p>
-        <p>${certText}</p>
+      <div class="modal-cert-card">
+        <h4 class="modal-cert-title">${certTitle}</h4>
+        <p class="modal-cert-desc">${certText}</p>
       </div>
     `;
   }
@@ -593,6 +681,13 @@ function setupModalListeners() {
       e.clientY <= dialogDimensions.bottom
     );
     if (!isClickInside) {
+      modal.close();
+    }
+  });
+
+  // ปิดด้วยปุ่ม Escape บนแป้นพิมพ์ (Explicit Keydown Listener)
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.open) {
       modal.close();
     }
   });
@@ -924,6 +1019,7 @@ function setupLanguageSwitcher() {
   const langToggleBtn = document.getElementById("lang-toggle-btn");
   const thCode = document.getElementById("lang-code-th");
   const enCode = document.getElementById("lang-code-en");
+  const themeToggleBtn = document.getElementById("theme-toggle-btn");
   if (!langToggleBtn) return;
 
   function applyLanguage(lang) {
@@ -957,7 +1053,22 @@ function setupLanguageSwitcher() {
       }
     }
 
-    // 4. อัปเดตข้อความปุ่มย่อ/ขยายบริการ
+    // 4. อัปเดต accessibility labels ของปุ่มสลับธีม และวงแหวนเมาส์
+    if (themeToggleBtn) {
+      const themeLabel = lang === "en"
+        ? (currentTheme === "dark" ? "Switch to Light Theme" : "Switch to Dark Theme")
+        : (currentTheme === "dark" ? "สลับเป็นโหมดสว่าง" : "สลับเป็นโหมดมืด");
+      themeToggleBtn.setAttribute("aria-label", themeLabel);
+      themeToggleBtn.setAttribute("title", themeLabel);
+      const themeModeText = document.getElementById("theme-mode-text");
+      if (themeModeText) {
+        themeModeText.textContent = lang === "en"
+          ? (currentTheme === "dark" ? "Dark" : "Light")
+          : (currentTheme === "dark" ? "มืด" : "สว่าง");
+      }
+    }
+
+    // 5. อัปเดตข้อความปุ่มย่อ/ขยายบริการ
     const expandText = document.getElementById("expand-services-text");
     if (expandText) {
       expandText.textContent = isServicesExpanded
@@ -965,10 +1076,13 @@ function setupLanguageSwitcher() {
         : translations[lang]["services.expandShowMore"];
     }
 
-    // 5. แสดงผล dynamic services และ selected tags ใหม่ในภาษาที่เลือก
+    // 6. แสดงผล dynamic services และ selected tags ใหม่ในภาษาที่เลือก
     updateServicesDisplay();
     updateSelectedServicesUI();
   }
+
+  // ใช้ภาษาเริ่มต้นที่กำหนด (Default: EN)
+  applyLanguage(currentLang);
 
   langToggleBtn.addEventListener("click", () => {
     const nextLang = currentLang === "th" ? "en" : "th";
@@ -1032,7 +1146,79 @@ function setupAnimatedCounters() {
 }
 
 /* ==========================================================================
-   15. DOM INITIALIZATION
+   15. THEME TOGGLE (DARK / LIGHT MODE)
+   Course 953104: Strictly In-Memory (Zero localStorage / Zero sessionStorage)
+   ========================================================================== */
+let currentTheme = "dark"; // "dark" | "light"
+
+function setupThemeToggle() {
+  const themeToggleBtn = document.getElementById("theme-toggle-btn");
+  const themeModeText = document.getElementById("theme-mode-text");
+  if (!themeToggleBtn) return;
+
+  function applyTheme(theme) {
+    currentTheme = theme;
+    document.documentElement.setAttribute("data-theme", theme);
+    themeToggleBtn.setAttribute("aria-checked", theme === "light" ? "true" : "false");
+    themeToggleBtn.classList.toggle("is-light", theme === "light");
+
+    if (themeModeText) {
+      themeModeText.textContent = currentLang === "en"
+        ? (theme === "dark" ? "Dark" : "Light")
+        : (theme === "dark" ? "มืด" : "สว่าง");
+    }
+
+    const themeLabel = currentLang === "en"
+      ? (theme === "dark" ? "Switch to Light Theme" : "Switch to Dark Theme")
+      : (theme === "dark" ? "สลับเป็นโหมดสว่าง" : "สลับเป็นโหมดมืด");
+    themeToggleBtn.setAttribute("aria-label", themeLabel);
+    themeToggleBtn.setAttribute("title", themeLabel);
+  }
+
+  themeToggleBtn.addEventListener("click", () => {
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    applyTheme(nextTheme);
+  });
+}
+
+/* ==========================================================================
+   16. HERO TITLE 3D TILT EFFECT (renumbered from 17)
+
+/* ==========================================================================
+   17. HERO TITLE 3D TILT EFFECT
+   Smooth perspective tilt tracking mouse in Hero section (Zero Lag)
+   ========================================================================== */
+function setupHeroTiltEffect() {
+  const heroSection = document.getElementById("hero");
+  const heroTitle = document.getElementById("hero-heading");
+  if (!heroSection || !heroTitle) return;
+
+  if (window.matchMedia("(hover: none) or (pointer: coarse)").matches) return;
+
+  let rafId = null;
+
+  heroSection.addEventListener("mousemove", (e) => {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(() => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
+      const y = (e.clientY - rect.top) / rect.height - 0.5; // -0.5 to 0.5
+
+      const rotateX = -(y * 8).toFixed(2); // max +-4 deg
+      const rotateY = (x * 10).toFixed(2); // max +-5 deg
+
+      heroTitle.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+  }, { passive: true });
+
+  heroSection.addEventListener("mouseleave", () => {
+    if (rafId) cancelAnimationFrame(rafId);
+    heroTitle.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg)";
+  });
+}
+
+/* ==========================================================================
+   18. DOM INITIALIZATION
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   // 1. ระบบนำทางบนมือถือ
@@ -1041,42 +1227,48 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. ระบบ Scrollspy ไฮไลต์เมนูตามตำแหน่ง Scroll
   setupScrollSpy();
 
-  // 3. ระบบสลับภาษา (TH / EN)
+  // 3. ระบบสลับภาษา (TH / EN) - ค่าเริ่มต้นเป็น EN
   setupLanguageSwitcher();
 
-  // 4. แสดงผลข้อมูลบริการเริ่มต้น (Feature 3)
+  // 4. ระบบสลับธีม มืด / สว่าง (Dark / Light Mode - In-memory)
+  setupThemeToggle();
+
+  // 5. เอฟเฟกต์ 3D Tilt ตัวหนังสือ We Prepare For The Future
+  setupHeroTiltEffect();
+
+  // 7. แสดงผลข้อมูลบริการเริ่มต้น (Feature 3)
   updateServicesDisplay();
 
-  // 5. ปุ่มขยาย/ย่อบริการบนจอมือถือ
+  // 8. ปุ่มขยาย/ย่อบริการบนจอมือถือ
   setupMobileServicesExpand();
 
-  // 6. ตั้งค่าระบบควบคุม Filter, Search, Sort (Feature 5)
+  // 9. ตั้งค่าระบบควบคุม Filter, Search, Sort (Feature 5)
   setupFilterAndSearchControls();
 
-  // 7. ตั้งค่า Event Delegation บนคอนเทนเนอร์บริการ (Feature 5)
+  // 10. ตั้งค่า Event Delegation บนคอนเทนเนอร์บริการ (Feature 5)
   setupServicesEventDelegation();
 
-  // 8. ตั้งค่า Event Delegation สำหรับกล่องระบบที่เลือกสนใจ
+  // 11. ตั้งค่า Event Delegation สำหรับกล่องระบบที่เลือกสนใจ
   setupSelectedServicesDelegation();
 
-  // 9. ตั้งค่า Native Modal <dialog> (Feature 6)
+  // 12. ตั้งค่า Native Modal <dialog> (Feature 6)
   setupModalListeners();
 
-  // 10. ตั้งค่า Keyboard Shortcuts (Feature 7)
+  // 13. ตั้งค่า Keyboard Shortcuts (Feature 7)
   setupKeyboardShortcuts();
 
-  // 11. ตั้งค่าการตรวจสอบแบบฟอร์ม (Feature 4)
+  // 14. ตั้งค่าการตรวจสอบแบบฟอร์ม (Feature 4)
   setupFormValidation();
 
-  // 12. เอฟเฟกต์ตัวเลขนับขึ้น (Stats Counter Animation)
+  // 15. เอฟเฟกต์ตัวเลขนับขึ้น (Stats Counter Animation)
   setupAnimatedCounters();
 
-  // 13. ปรับขนาดการแสดงผลบริการอัตโนมัติเมื่อหมุนหน้าจอหรือเปลี่ยนขนาดหน้าต่าง
+  // 16. ปรับขนาดการแสดงผลบริการอัตโนมัติเมื่อหมุนหน้าจอหรือเปลี่ยนขนาดหน้าต่าง
   window.addEventListener("resize", () => {
     updateServicesDisplay();
   }, { passive: true });
 
-  console.log("BAS Website: All Features (1 to 7) + Animations + Scrollspy + i18n fully initialized.");
+  console.log("BAS Website: All Features (1 to 7) + Theme Toggle + Hero Tilt + i18n initialized.");
 });
 
 
